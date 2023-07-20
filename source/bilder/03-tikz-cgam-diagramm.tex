@@ -1,0 +1,41 @@
+\begin{tikzpicture}[font=\small]
+\begin{axis}[width=75mm,height=70mm,%
+/pgf/number format/1000 sep={.},/pgf/number format/use comma,
+ybar,
+bar width=20pt,
+ymin=0,
+%grid=both,
+ymajorgrids=true,
+yminorgrids=true,
+minor grid style={gray!25},
+minor tick num=4,
+% xtick={\empty},ytick={},
+%x tick label style={major tick length=0pt},
+%x tick label style={minor tick length=0pt},
+xtick align=inside,
+major x tick style = transparent,
+minor x tick style = transparent,
+nodes near coords,
+%nodes near coords align=above,
+%point meta=rawy,
+%
+%axis x line=bottom,
+%axis y line=left,
+%
+%ylabel=$\mathrm{kWh/m^2a}$,
+%ymin=0,
+%ytick={0,50,100,150,200,250,300},
+enlargelimits=auto,
+symbolic x coords ={AC,APH,CC,EXP,HRSG},
+%x tick label style={rotate=30,anchor=north east},
+ylabel near ticks,
+ylabel={Exergievernichtung, $\dot E_{\text{D,}k}$ [MW]}]
+\addplot[fill=white,postaction={pattern=north east lines}] coordinates {
+	(AC,2.15)
+	(APH,2.64)
+	(CC,25.20)
+	(EXP,2.93)
+	(HRSG,6.24)
+};
+\end{axis}
+\end{tikzpicture}

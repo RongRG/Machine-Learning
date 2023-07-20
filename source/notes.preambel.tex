@@ -1,0 +1,144 @@
+% Dokumentklasse und Spracheinstellung
+\documentclass[12pt, oneside, paper=A4, DIV=15, BCOR=0mm, abstract=true, headings=small]{scrartcl}
+\usepackage[ngerman, english]{babel}
+\usepackage[utf8]{inputenc}
+
+% Schriftart
+%LModern
+\usepackage{lmodern}
+%Libertine
+%\usepackage{libertinus}
+%\usepackage{libertinust1math}
+
+\usepackage[T1]{fontenc}
+
+% Kopf- und Fusszeilen mit scrlayer-scrpage steuern
+% Trennungslinie oben und unten
+\usepackage[headsepline, footsepline]{scrlayer-scrpage}
+
+
+% fontsize for sections
+\usepackage{titlesec}
+
+\titleformat*{\section}{\large\bfseries}
+%\titleformat*{\subsection}{\large\bfseries}
+%\titleformat*{\subsubsection}{\large\bfseries}
+
+
+% Mathe, Symbole, EInheitendarstellung, Chemie
+\usepackage{amsmath}
+% Grouping Figure/Equation Numbering by Section
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+\usepackage{amssymb}
+\usepackage{esdiff}
+\usepackage{amsxtra}
+\usepackage{eurosym}
+\usepackage{siunitx}  
+\sisetup{locale=DE}
+\usepackage[version=4]{mhchem}
+\usepackage[dvipsnames]{xcolor}
+
+% Typographie
+\usepackage[auto]{microtype}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+% Einbindung von Bildern, Tabellen, pdf-Seiten, Quellcode
+\usepackage{graphicx}
+\usepackage{multirow, multicol, booktabs}
+\usepackage{threeparttable}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{ltablex}
+\usepackage{subfig}
+\captionsetup[subtable]{position=top}
+\usepackage{pdfpages}
+\usepackage{listings}
+
+% Darstellung von URL
+\usepackage{url}
+\urlstyle{same}
+
+% Fussnoten, auch für Tabellen
+\usepackage{footnote}
+\makesavenoteenv{tabular} 
+
+% Pakete für Kontrolle und Review
+\usepackage{todonotes}
+\usepackage{blindtext}
+
+% Darstellung der Literaturangaben
+\usepackage[
+backend=biber,
+style=iso-numeric,
+citestyle=numeric-comp,
+maxbibnames=2,
+firstinits=true
+]{biblatex}
+
+\renewcommand*{\labelnamepunct}{\addcolon\addspace}
+
+% Speicherort der Literaturangaben (*.bib Datei)
+\bibliography{literatur/literaturdatenbank}
+
+% Fussnoten
+% Markierung in der Fußnote selbst weder hochgestellt noch kleiner gesetzt
+% \deffootnote{1em}{1em}{\thefootnotemark\ }
+% linksbündige Fußnotenmarkierungen
+\deffootnote{1.5em}{1em}{%
+  \makebox[1.5em][l]{\thefootnotemark}%
+}
+
+% Fussnoten nicht umbrechen
+\interfootnotelinepenalty=10000
+
+% Gestaltung der Bildunterschrift und Tabellenüberschirften sowie Titelseitenangaben
+\addtokomafont{caption}{\small}
+\setkomafont{captionlabel}{\sffamily\bfseries}
+\setkomafont{subject}{\Large\bfseries}
+\setkomafont{author}{\normalfont}
+\setkomafont{date}{\normalfont}
+\setkomafont{publishers}{\normalfont}
+
+
+\makeatletter
+% \renewcommand{\l@section}{\@dottedtocline{1}{0em}{0em}}
+% \renewcommand{\l@subsection}{\@dottedtocline{2}{4ex}{3.6em}}
+% \g@addto@macro{\@afterheading}{\vspace{-0.25\baselineskip}}
+\renewcommand{\l@section}{\@dottedtocline{1}{0ex}{1.8em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.8em}{2.7em}}
+% \g@addto@macro{\@afterheading}{\vspace{-0.25\baselineskip}}
+\makeatother
+
+
+% \renewcaptionname{ngerman}{\figurename}{Abb.}
+% \renewcaptionname{ngerman}{\tablename}{Tab.} 
+
+% Tabellenumgebungen mit Schriftgröße 10 und 7
+\newenvironment{tabular10}{%
+  \fontsize{10}{12}\selectfont\tabular
+}{%
+  \endtabular
+}
+
+\newenvironment{tabular7}{%
+  \fontsize{7}{12}\selectfont\tabular
+}{%
+  \endtabular
+}
+
+% Verweise und Refernezen, pdf-Eisntellungen
+% Angaben ggf. aktualisieren!
+\usepackage[
+pdftitle={StudyNotes},
+pdfsubject={},
+pdfauthor={},
+pdfkeywords={},  
+% Links nicht einrahmen
+hidelinks
+]{hyperref}
+\usepackage[german, english]{cleveref}
+
+\graphicspath{ {./bilder/} }
